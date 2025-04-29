@@ -7,6 +7,7 @@ export type ID = string | number;
 export type Category = {
   id: ID;
   category: string;
+  description?: string; // optional properties description (tidak wajib diisi)
 };
 
 export type Product = {
@@ -14,4 +15,5 @@ export type Product = {
   name: string;
   price: number;
   category: Category;
+  description?: string; // optional properties description (tidak wajib diisi)
 };

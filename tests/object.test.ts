@@ -1,6 +1,7 @@
 describe("Object Type", function () {
   it("should support in typescript", function () {
-    const person: { id: string; name: string } = {
+    // hobbies is optional properties
+    const person: { id: string; name: string; hobbies?: string[] } = {
       id: "123",
       name: "Dicky AL Fattha",
     };
