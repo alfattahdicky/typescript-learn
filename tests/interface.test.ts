@@ -14,4 +14,16 @@ describe("Interface", function () {
 
     console.info(seller);
   });
+
+  it("should support function interface", function () {
+    interface AddFunction {
+      (a: number, b: number): number;
+    }
+
+    const add: AddFunction = (a: number, b: number): number => {
+      return a + b;
+    };
+
+    expect(add(2, 2)).toBe(4);
+  });
 });
