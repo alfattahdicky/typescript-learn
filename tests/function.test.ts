@@ -12,4 +12,36 @@ describe("Function", function () {
 
     logHello("Doe");
   });
+  it("should support default value", function () {
+    function sayHello(name: string = "Budi"): string {
+      return `Hello ${name}`;
+    }
+
+    expect(sayHello("Doe")).toBe("Hello Doe");
+    expect(sayHello()).toBe("Hello Budi");
+  });
+  it("should support rest parameter", function () {
+    function sum(...numbers: number[]): number {
+      let total = 0;
+      for (const number of numbers) {
+        total += number;
+      }
+
+      return total;
+    }
+
+    expect(sum(1, 2, 4, 5)).toBe(12);
+  });
+  it("should support optional parameter", function () {
+    function sayHello(firstName: string, lastName?: string): string {
+      if (lastName) {
+        return `Hello ${firstName} ${lastName}`;
+      } else {
+        return `Hello ${firstName}`;
+      }
+    }
+
+    expect(sayHello("Dicky")).toBe("Hello Dicky");
+    expect(sayHello("Dicky", "Al Fattah")).toBe("Hello Dicky Al Fattah");
+  });
 });
