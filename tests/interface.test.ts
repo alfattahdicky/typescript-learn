@@ -83,4 +83,26 @@ describe("Interface", function () {
 
     expect(person.greet("Doe")).toBe("Hello Doe, my name is John");
   });
+  it("should support intersection types", function () {
+    interface HasName {
+      name: string;
+    }
+    interface HasId {
+      id: number;
+    }
+
+    // Digunakan apabila ada tambahan type
+    // interface Person extends HasName, HasId {
+
+    // }
+
+    type Domain = HasName & HasId;
+
+    const domain: Domain = {
+      name: "Doe",
+      id: 1,
+    };
+
+    console.info(domain);
+  });
 });
