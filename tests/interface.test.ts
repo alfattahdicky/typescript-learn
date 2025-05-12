@@ -68,4 +68,19 @@ describe("Interface", function () {
 
     console.info(manager);
   });
+  it("should support function in interface", function () {
+    interface Person {
+      name: string;
+      greet(name: string): string;
+    }
+
+    const person: Person = {
+      name: "John",
+      greet: function (name: string): string {
+        return `Hello ${name}, my name is ${this.name}`;
+      },
+    };
+
+    expect(person.greet("Doe")).toBe("Hello Doe, my name is John");
+  });
 });
