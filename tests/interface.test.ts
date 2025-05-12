@@ -1,4 +1,5 @@
 import { Employee, Manager } from "../src/employee";
+import { Person } from "../src/person";
 import { Seller } from "../src/seller";
 
 describe("Interface", function () {
@@ -69,11 +70,6 @@ describe("Interface", function () {
     console.info(manager);
   });
   it("should support function in interface", function () {
-    interface Person {
-      name: string;
-      greet(name: string): string;
-    }
-
     const person: Person = {
       name: "John",
       greet: function (name: string): string {
@@ -104,5 +100,18 @@ describe("Interface", function () {
     };
 
     console.info(domain);
+  });
+
+  it("should support type assertion", function () {
+    const person: any = {
+      name: "Eko",
+      age: 30,
+    };
+
+    // Harus hati-hati dalam menggunakan type assertion dan pastikan kembali tipe data yang digunakan
+    const person2: Person = person as Person;
+    // person2.greet("Doe"); // Error karena property greet tidak ada di person
+
+    console.info(person2);
   });
 });
